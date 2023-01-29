@@ -12,5 +12,20 @@ using UnityEngine;
  */
 public class BasicPhysicObject : MonoBehaviour
 {
-    
+    [SerializeField]
+    Transform centerOfMass;
+    [SerializeField]
+    float mass = 5;
+    [SerializeField]
+    float dynamicFriction = 0.5f;
+    [SerializeField]
+    float staticFriction = 0.5f;
+    [SerializeField]
+    float bounciness = 0.5f;
+
+    Vector3 resultingForce;
+    Collider objectCollider;
+
+
+
 }

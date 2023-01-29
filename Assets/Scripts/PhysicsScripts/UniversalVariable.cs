@@ -12,11 +12,15 @@ using UnityEngine;
 public static class UniversalVariable
 {
     private static float gravity = 9.81f;
-
+    private static float airDrag = 1.0f;
 
 
     public static float GetGravity() 
     {
         return gravity;
+    }
+    public static float GetAirDrag() 
+    {
+        return airDrag;
     }
 }
