@@ -17,10 +17,16 @@ public class PhysicsManager : MonoBehaviour
 	private float stepLength;
 	private float numberOfUpdateCounter = 0;
 
+	//List of all physics objects
+	[SerializeField]
+	List<BasicPhysicObject> physicObjects;
+
 	public void Start()
 	{
 		ChangeNumberOfStepsPerSecond(numberOfStepsPerSecond);
 		numberOfUpdateCounter = 0;
+
+		
 	}
 
 
@@ -31,6 +37,7 @@ public class PhysicsManager : MonoBehaviour
 		
 		while (numberOfUpdateCounter > 1) 
 		{
+			
 			PhysicCalculations();
 			numberOfUpdateCounter--;
 		}
@@ -40,7 +47,11 @@ public class PhysicsManager : MonoBehaviour
 	//Simulate all the physics behaviours
 	private void PhysicCalculations() 
 	{
-		
+		for (int i = 0; i < physicObjects.Count; i++) 
+		{
+			physicObjects[i].CalculateResultingForceVector();
+			physicObjects[i].UpdateState(stepLength);
+		}
 	}
 
 	//Change the number of steps per second and update the Step length in consequence
